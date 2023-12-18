@@ -6,24 +6,19 @@ export default function Home() {
   return (
     <>
       <Header>
-        <div className="header-content  m-2 text-white ">
-          <div className="row px-4  g-0 align-Items-center justify-content-center  ">
-            <div className="col-sm-8 py-5 my-4 px-5  ">
+        <div className="header-content  mx-2 text-white  ">
+          <div className="row px-4 py-2 g-0 align-Items-center  ">
+            <div className="col-sm-10 mt-4 ps-5  ">
               <div className="mx-3">
                 <h3>Welcom Upskilling !</h3>
                 <p>
-                  This is a welcoming screen for the entry of the application ,{" "}
-                  <br />
+                This is a welcoming screen for the entry of the application , <br />
                   you can now see the options
                 </p>
               </div>
             </div>
-            <div className="col-md-4   ">
-              <img
-                className="img-fluid headerImg   w-75"
-                src={header}
-                alt="cook"
-              />
+            <div className="col-md-2">
+            <img className="img-fluid headerImg  w-75" src={header} alt="cook" />
             </div>
           </div>
         </div>

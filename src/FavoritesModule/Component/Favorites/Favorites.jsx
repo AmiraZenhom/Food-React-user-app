@@ -5,7 +5,9 @@ import { AuthContext } from "../../../Context/AuthContext";
 import axios from "axios";
 import NoData from "../../../SharedModule/Component/NoData/NoData";
 import Photo from "../../../assets/images/nodata.png";
+import Photo1 from "../../../assets/images/download.png";
 import Modal from "react-bootstrap/Modal";
+import { toast } from "react-toastify";
 
 export default function Favorites() {
   const [favoriteList, setFavoriteList] = useState([]);
@@ -24,6 +26,7 @@ export default function Favorites() {
       .then((response) => {
         getAllFavorite();
         handleClose();
+        toast.success("Delete Successfully");
       })
       .catch((error) => {
         console.log(error.response.data.message);
@@ -38,6 +41,7 @@ export default function Favorites() {
       .then((response) => {
         console.log(response?.data?.data);
         setFavoriteList(response?.data?.data);
+       
       })
       .catch((error) => {
         console.log(error);
@@ -54,28 +58,29 @@ export default function Favorites() {
 
   return (
     <>
-      <Header>
-        <div className="header-content  m-2 text-white  ">
-          <div className="row px-4  g-0 align-Items-center justify-content-center  ">
-            <div className="col-sm-9 p-5  ">
+     
+       <Header>
+        <div className="header-content  mx-2 text-white  ">
+          <div className="row px-4 py-2 g-0 align-Items-center  ">
+            <div className="col-sm-10 mt-4 ps-5  ">
               <div className="mx-3">
                 <h3>Recipes Items</h3>
                 <p>
-                  You can now add your items that any user can order it from{" "}
+                You can now add your items that any user can order it from{" "}
                   <br /> the Application and you can edit
                 </p>
               </div>
             </div>
-            <div className="col-md-3  py-3 ps-5 ">
-              <img className="img-fluid headerImg" src={header} alt="" />
+            <div className="col-md-2">
+            <img className="img-fluid headerImg" src={header} alt="" />
             </div>
           </div>
         </div>
       </Header>
       <Modal show={modalState == "modal-two"} onHide={handleClose}>
-        <Modal.Body className="deleteitem">
+        <Modal.Body className="deleteitem text-danger">
           <div className="text-center noData mt-3 ">
-            <img className="w-25" src={Photo} alt="" />
+            <img className="w-25" src={Photo1} alt="" />
             <h5 className="mt-3">Delete This Faviourt ?</h5>
             <p>
               are you sure you want to delete this item ? if you are sure just{" "}
@@ -96,9 +101,9 @@ export default function Favorites() {
       </Modal>
 
       {favoriteList.length > 0 ? (
-        <div className="row row-cols-1 row-cols-md-2 mt-4 gy-4  ">
+        <div className="row row-cols-1 row-cols-md-2 mt-4 gy-4 ms-4  ">
           {favoriteList.map((fav, index) => (
-            <div className="col-md-4 rounded-5  " key={index}>
+            <div className="col-md-4 rounded-5    " key={index}>
               <div className="card shadow  ">
                 {fav?.recipe?.imagePath ? (
                   <div className="rounded-5 photo1    ">
@@ -116,7 +121,7 @@ export default function Favorites() {
                   </div>
                 )}
 
-                <div className="card-body bg-danger text-white">
+                <div className="card-body bg-success text-white">
                   <h5 className="card-title">{fav.recipe.name}</h5>
                   <p className="card-text">
                   {fav.recipe.description}

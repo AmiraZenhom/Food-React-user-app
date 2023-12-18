@@ -6,6 +6,7 @@ import Header from "../../../SharedModule/Component/Header/Header";
 import NoData from "../../../SharedModule/Component/NoData/NoData";
 import header from "../../../assets/images/Group 48102127.png";
 import Photo from "../../../assets/images/nodata.png";
+import { toast } from "react-toastify";
 
 export default function Recipes() {
   const { requestHeader, baseUrl } = useContext(AuthContext);
@@ -43,6 +44,7 @@ export default function Recipes() {
       )
       .then((response) => {
         console.log(response);
+        toast.success("Add Successfully");
       });
     handleClose().catch((error) => {
       console.log(error);
@@ -149,20 +151,21 @@ export default function Recipes() {
         </Modal.Body>
       </Modal>
 
-      <Header>
-        <div className="header-content  m-2 text-white ">
-          <div className="row px-4  g-0 align-Items-center justify-content-center  ">
-            <div className="col-sm-9 p-5  ">
+    
+       <Header>
+        <div className="header-content  mx-2 text-white  ">
+          <div className="row px-4 py-2 g-0 align-Items-center  ">
+            <div className="col-sm-10 mt-4 ps-5  ">
               <div className="mx-3">
                 <h3>Recipes Items</h3>
                 <p>
-                  You can now add your items that any user can order it from{" "}
-                  <br /> the Application and you can edit
+                This is a welcoming screen for the entry of the application , <br />
+                  you can now see the options
                 </p>
               </div>
             </div>
-            <div className="col-md-3  py-3 ps-5 ">
-              <img className="img-fluid headerImg" src={header} alt="" />
+            <div className="col-md-2">
+            <img className="img-fluid headerImg" src={header} alt="" />
             </div>
           </div>
         </div>

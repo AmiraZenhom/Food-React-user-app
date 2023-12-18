@@ -69,7 +69,7 @@ export default function VerfiyEmail() {
                             )}
                         </div>
 
-    {/********** for input email ********** */}
+    {/********** for input code ********** */}
                         <div className='form-group mt-4 position-relative'>
                             <i className="fa icon fa-lock position-absolute mt-2 ms-3"></i>
                             <input className='form-control ps-5' 
